@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewpoint" content="width=device-width, intial-scale=1.0">
+    <title>Home - Explore Events</title>
+    <style>
+
+        /* tablet view */
+        @media only screen and (min-width: 576px) {
+            .container {
+                width: 540px;
+            }
+        }
+
+        /* desktop view */
+        @media only screen and (min-width: 1200px) {
+            .container {
+                width: 1140px;
+            }
+        }
+        
+        *{
+            text-decoration: none;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .navbar{
+            font-family: calibri;
+        }
+        .navdiv{
+            display: flex; align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            background-color: white;
+            z-index: 1000; 
+        }
+        .logo a{
+            font-size: 35px; color:rgb(165, 42, 42);font-weight: 300;font-family:Georgia;margin-right: 300px;
+        }
+        li{
+            list-style: none;display: inline-block;font-size: 15px;margin-left: 20px;
+        }
+
+        li a{
+            color:lightgray;font-family:Arial, sans-serif;
+        }
+        .navbar ul li a {
+            line-height: 3.4; /* Adjust this value to raise or lower the text */
+        }
+        .navdiv ul {
+            margin-left: 290px; /* Adjust this value to move the navigation list to the right */
+        }
+        li a:hover{
+            border-bottom: 2px solid brown;color:black;padding-bottom: 30px;
+        }
+
+        nav li a.active {
+            border-bottom: 2px solid brown;
+            color: black;
+            padding-bottom: 30px;
+        }
+        .bg img{
+            width: 100px;
+            height: auto;
+            vertical-align: middle;
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 20px;
+        }
+
+        .welcome,.news{
+            padding: 150px;
+            margin-top: -100px;
+            margin-left: 100px;
+        }
+        .research {
+            padding: 150px;
+            margin-top: -100px;
+        }
+
+        fieldset {
+            border-bottom: none;
+            border-left: none;
+            border-right: none;
+            border-top-right-radius: 5px; /* Add top-right border radius */
+            padding: 20px;
+            position: relative;
+        }
+        fieldset::before{
+            
+            position: absolute;
+            top: -17px; /* Adjust to align with the top border */
+            left: 0;
+            width: calc(100% - 1px); /* Adjust to remove right border width */
+            height: 1px;
+            background-color: gray;
+        }
+
+
+        legend {
+            font-size: 24px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .image-text-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .image-container {
+            flex:0 0 auto; /* Do not grow or shrink */
+            margin-right: 20px; /* Adjust margin as needed */
+            
+        }
+
+        .text-container {
+            flex:3; /* Grow to fill remaining space */
+            font-family:Arial, Helvetica, sans-serif;
+            font-size: 18px;
+            margin-top: -20px;
+            width: 550px;
+            color: rgb(105, 102, 102);
+        }
+
+        .welcome{
+            grid-column: span 1; /* Each section spans one column */
+            margin-bottom: -200px;
+            margin-right: -300px;
+        }
+        .news {
+            grid-column: span 1; /* Each section spans one column */
+            margin-bottom: -200px;
+        }
+
+        .research {
+            grid-column: span 2; /* This section spans both columns */
+            margin-left: 98px;
+        }
+        .highlight{
+            color:brown;
+        }
+        .news a{
+            color:black;
+            ;
+        }
+        .image-gallery {
+            display:flex;
+        }
+
+        .image-slide {
+            flex: 4; /* Each image slide occupies equal space */
+            margin-right: 5px; /* Add some space between image slides */
+            position: relative; /* Position for slide description */
+            border: 2px solid lightgray;
+            border-bottom: 2px solid lightgray;
+        }
+
+        .image-slide img {
+            width: 100%; /* Make all images fill the container horizontally */
+            height: auto; /* Maintain aspect ratio */
+            display: block; /* Remove default inline alignment */
+            max-width: 100%; /* Ensure images don't exceed their container width */
+            max-height: 200px; /* Set maximum height for images */
+        }
+
+        .slide-description {
+            position: absolute;
+            bottom:-15px;
+            left: 0;
+            right: 0;
+            text-align: center; /* Center the description */
+            background-color: brown; /* Semi-transparent background */
+            color:antiquewhite;
+            padding: 10px;
+            padding-bottom:1px;
+        }
+
+
+        footer {
+            background-color: #222222; /* Example background color */
+            padding: 20px;
+        }
+
+        .foot {
+            display: flex;
+            align-items: center;
+            padding: 100px;
+            padding-left: 500px;
+        }
+        
+        .textcon {
+            flex: 1; /* Grow to fill remaining space */
+            margin-left: 100px;
+        }
+
+    
+        .date{
+            color:rgb(114, 106, 106);
+            font-size: 12px;
+        }
+
+        footer {
+        background-color: rgb(58, 58, 59);
+        color: antiquewhite;
+        font-family: Arial, sans-serif;
+        padding: 40px 0;
+        }
+
+        .footer-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-section {
+            flex: 1;
+            min-width: 200px;
+            margin: 20px;
+        }
+
+        .footer-section h3 {
+            border-bottom: 2px solid antiquewhite;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        .footer-section p {
+            line-height: 1.6;
+        }
+
+        .social-media {
+            margin-top: 10px;
+        }
+
+        .social-media a {
+            margin: 0 10px;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .social-media a:hover {
+            transform: translateY(-5px);
+        }
+
+        .social-media img {
+            width: 24px;
+            height: 24px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 20px 0;
+            background-color: rgb(206, 119, 21);
+            color: antiquewhite;
+            font-size: 14px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .footer-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-section {
+                text-align: center;
+            }
+        }
+
+
+    </style>
+</head>
+    <body>
+        <header>
+            <nav class="navbar">
+                <div class="navdiv">
+                    <ul>
+                        <li><a href="index.html" class="active">Home</a></li>
+                        <li><a href="#">Research</a></li>
+                        <li><a href="#">Publications</a></li>
+                        <li><a href="#">Lab Members</a></li>
+                        <li><a href="#">Alumni (PhD)</a></li>
+                        <li><a href="#">Personal</a></li>
+                        <a href="#"><img src="sr.png" style="width: 35px;height: 35px;margin-bottom: -10px;"></a>
+                    </ul>
+                    <div class="logo"><a href="project.html">University Technology of Malaysia</a></div>
+                </div>
+                <div class="bg">
+                    <img src="background.jpg" alt="Larry PILEGGI" style="width: 1857px;">
+                </div>
+            </nav>
+        </header>
+        <main class="grid-container">
+            <div class="welcome">
+                <fieldset>
+                    <legend>Welcome</legend>
+                    <div class="image-text-container">
+                        <div class="image-container">
+                            <img src="147.jpeg" alt="Ahmed Hamdy" width="300px">
+                        </div>
+                        <div class="text-container">
+                            <p><span class="highlight">Ahmed Hamdy</span>, a dedicated software student, possesses a profound understanding of secure hardware, power houses, and integrated circuits.
+                                 Renowned as the Coraluppi Head and the Tanoto Professor of Electrical and Computer Engineering at Carnegie Mellon University, Ahmed's expertise extends across various domains.
+                                 His research interests are multifaceted, encompassing the intricate realms of modeling,
+                                 design, and methodologies for integrated systems. With a keen focus on innovation, Ahmed delves into the realms of modeling, simulation, and optimization of electrical power systems, paving the way for groundbreaking advancements in the field. His relentless pursuit of knowledge and his commitment to excellence make him a trailblazer in the realm of electrical and computer engineering.</p>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>            
+          
+            <div class="news">
+                <fieldset>
+                    <legend>In The News</legend>
+                    <p><span class="date">FEBRUARY 20, 2024</span><br>
+                        <a href="">EDA Cafe Interview</p></a>
+                        <p><span class="date">NOVEMBER 19, 2023</span><br>
+                        <a href="">Pileggi quoted in the NY Times</p></a>
+                        <p><span class="date">SEPTEMBER 20, 2023</span><br>
+                        <a href="">Pileggi Receives the 2023 Phil Kaufman Award for Pioneering <br>Contributions</p></a>
+                        <span class="date">DECEMBER 16, 2021</span><br>
+                        <a href=""> Named to the National Academy of Inventors</a>
+                </fieldset>
+            </div>
+        
+            <div class="research">
+                <fieldset>
+                    <legend>Events</legend>
+                    <div class="image-gallery">
+                        <div class="image-slide"><a href="#" alt="Power House">
+                            <img src="bionic.jpg" alt="bionic">
+                            <p class="slide-description">Bionic</p></a>
+                        </div>
+                        <div class="image-slide"><a href="2023 charity">
+                            <img src="skk.JPG" alt="charity">
+                            <p class="slide-description">Benefit Gala</p></a>
+                        </div>
+                        <div class="image-slide"><a href="#" alt="intergrated circuit">
+                            <img src="circuit.jpg" alt="Image 3">
+                            <p class="slide-description">Integrated Circuit</p></a>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </main>
+        <footer>
+            <div class="footer-container">
+                <div class="footer-section">
+                    <h3>About Us</h3>
+                    <p>We are dedicated to bringing you the best events in town. Stay tuned and join us for unforgettable experiences!</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p>Email: info@easeevents.com</p>
+                    <p>Phone: +123 456 7890</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-media">
+                        <a href="https://www.facebook.com/ahmad.abdalaziz.503"><img src="Facebook_Logo_2023.png" alt="Facebook"></a>
+                        <a href="https://www.instagram.com/yours_truly00001/"><img src="instagram-logo-instagram-icon-transparent-free-png.webp" alt="Instagram"></a>
+                        <a href="https://www.linkedin.com/in/ahmed-abdelaziz-784189262/"><img src="circle-linkedin-512.webp" alt="LinkedIn"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 EaseEvents. All rights reserved.</p>
+            </div>
+        </footer>
+        </html>
+        
